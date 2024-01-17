@@ -69,7 +69,7 @@ class Order extends Component
             $out['items_count'][$c->status] = $c->count;
         }
 
-
         return view('livewire.didrive.shop.v1.order', $out);
+        
     }
 }

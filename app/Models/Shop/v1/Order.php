@@ -9,6 +9,13 @@ class Order extends Model
 {
     use HasFactory;
 
+    /**
+     * The connection name for the model.
+     *
+     * @var string
+     */
+    protected $connection = 'mysql_site';
+
     protected $fillable = [
         'user_id',
         'status'
