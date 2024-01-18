@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Route;
 
 $d = function () {
 
+    Route::view('/', 'didrive.index')->name('index');
+
 //    Route::view('/show2', 'ar.item' )->name('show2');
 //    Route::view('/list1', 'ar.list1' )->name('list1');
 //
@@ -13,7 +15,7 @@ $d = function () {
 //    Route::view('/pays', 'ar.pays' )->name('pays');
 //    Route::view('/item', 'ar.item' )->name('item');
 //    Route::view('/group', 'ar.group' )->name('group');
-    Route::view('/', 'didrive.index' )->name('index');
+
 //    Route::get('/', News::class)->name('index');
 
 //    Route::get('services', News::class)->name('services');
@@ -28,16 +30,19 @@ $d = function () {
     });
 };
 
-$inRoute = [
-    [
-        'as' => 'didrive.',
-        'domain' => (env('APP_ENV', 'x') == 'local') ? 'didrive.auto-as.local' : 'ar.php-cat.com'
-    ]
-];
+Route::group([
+    'as' => 'didrive.',
+    'domain' => (env('APP_ENV', 'x') == 'local') ? 'didrive.auto-as.local' : ($_SERVER['HTTP_HOST'] == 'dev.47.avto-as.ru' ? 'dev.d47.avto-as.ru' : 'd47.avto-as.ru')
+], $d);
 
-foreach ($inRoute as $i) {
-    Route::group($i, $d);
-}
+
+
+
+
+
+
+
+
 
 //Route::group([
 ////    'as' => 'phpcat.',
