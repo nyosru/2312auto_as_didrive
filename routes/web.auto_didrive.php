@@ -32,7 +32,7 @@ $d = function () {
 
 Route::group([
     'as' => 'didrive.',
-    'domain' => (env('APP_ENV', 'x') == 'local') ? 'didrive.auto-as.local' : ($_SERVER['HTTP_HOST'] == 'dev.47.avto-as.ru' ? 'dev.d47.avto-as.ru' : 'd47.avto-as.ru')
+    'domain' => env('APP_DOMAIN', 'didrive.auto-as.local')
 ], $d);
 
 
