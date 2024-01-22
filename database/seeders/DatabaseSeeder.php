@@ -22,19 +22,20 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
 
-//            ArPeopleSeeder::class,
-            ArGroup::class,
-//            ArItems::class,
-            ArObjectSeeder::class,
-            ArTenantSeeder::class,
-
-            ArPriceSeeder::class,
-            ArPaySeeder::class,
-            ArPayedSeeder::class,
-
-////            LarawireNewsSeeder::class,
-//            PhpcatNewsSeeder::class,
-//            PhpcatServicesSeeder::class,
+////            ArPeopleSeeder::class,
+//            ArGroup::class,
+////            ArItems::class,
+//            ArObjectSeeder::class,
+//            ArTenantSeeder::class,
+//
+//            ArPriceSeeder::class,
+//            ArPaySeeder::class,
+//            ArPayedSeeder::class,
+//
+//////            LarawireNewsSeeder::class,
+////            PhpcatNewsSeeder::class,
+////            PhpcatServicesSeeder::class,
+            CommentSeeder::class
         ]);
 
         // \App\Models\User::factory(10)->create();

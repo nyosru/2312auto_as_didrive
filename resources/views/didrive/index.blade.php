@@ -1,8 +1,13 @@
 @extends('didrive.layouts.app')
 
 @section('content')
-7777
-        <livewire:didrive.shop.v1.order />
+{{--    @guest--}}
+{{--        гость--}}
+{{--   @endguest--}}
+{{--111--}}
+    @auth
+        <livewire:didrive.shop.v1.order/>
+    @endauth
 
 @endsection
 

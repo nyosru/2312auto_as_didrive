@@ -6,7 +6,20 @@ use Illuminate\Support\Facades\Route;
 
 $d = function () {
 
-    Route::view('/', 'didrive.index')->name('index');
+    Route::middleware('auth')->group(function () {
+//        group([
+//            'middleware' => 'auth'
+//        ], function () {
+
+        Route::view('/', 'didrive.index')->name('index');
+
+        Route::group(['middleware' => 'auth.role'],
+            function () {
+                Route::view('/page1', 'didrive.page1')->name('page1');
+                Route::view('/page2', 'didrive.page2')->name('page2');
+                Route::view('/page3', 'didrive.page3')->name('page3');
+            });
+
 
 //    Route::view('/show2', 'ar.item' )->name('show2');
 //    Route::view('/list1', 'ar.list1' )->name('list1');
@@ -25,9 +38,18 @@ $d = function () {
 ////    Route::get('money', News::class)->name('money');
 //    // Route::get('{.*}', News::class)->name('other');
 
-    Route::fallback(function () {
-        return redirect('/');
+        Route::fallback(function () {
+            return redirect('/');
+        });
+
     });
+//    }
+
+//    Route::view('/', 'didrive.enter' )->name('index_enter');
+    Route::get('/', [\App\Http\Controllers\Didrive\AuthController::class, 'showForm'])->name('index_enter');
+//    Route::get('/', [\App\Livewire\Forms\LoginForm::class,] );
+//        'livewire.pages.auth.login')->name('index_enter');
+
 };
 
 Route::group([

@@ -7,18 +7,18 @@
 
     <title>php-cat.com создание и поддержка сайтов и служб</title>
 
-    <link type="image/x-icon" href="/phpcat/favcat.ico" rel="shortcut icon" />
+    <link type="image/x-icon" href="/phpcat/favcat.ico" rel="shortcut icon"/>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
 
-{{--    <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />--}}
-{{--    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap" rel="stylesheet" />--}}
+    {{--    <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />--}}
+    {{--    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap" rel="stylesheet" />--}}
 
 
-{{--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/tw-elements.min.css" />--}}
-    <link rel="stylesheet" href="/tw-elements.min.css" />
-{{--    <script src="https://cdn.tailwindcss.com/3.3.0"></script>--}}
+    {{--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/tw-elements.min.css" />--}}
+    <link rel="stylesheet" href="/tw-elements.min.css"/>
+    {{--    <script src="https://cdn.tailwindcss.com/3.3.0"></script>--}}
     <script src="/3.4.1.js"></script>
 
     <script>
@@ -43,18 +43,18 @@
 
 <body class="antialiased">
 
-    <header>
-{{--        @include('ar.layouts.header')--}}
-        @include('didrive.layouts.header')
-    </header>
-    <main style="min-height:80vh;">
+<header>
+    {{--        @include('ar.layouts.header')--}}
+    @include('didrive.layouts.header')
+</header>
+<main style="min-height:80vh;">
 
-{{--        <livewire:ar.header-menu/>--}}
-        <livewire:didrive.menu/>
-        @yield('content')
-        {{-- {{ $_SERVER['HTTP_HOST'] ?? 'x' }} --}}
-    </main>
-    @include('ar.layouts.footer')
+    {{--        <livewire:ar.header-menu/>--}}
+    <livewire:didrive.menu/>
+    @yield('content')
+    {{-- {{ $_SERVER['HTTP_HOST'] ?? 'x' }} --}}
+</main>
+@include('didrive.layouts.footer')
 
 </body>
 

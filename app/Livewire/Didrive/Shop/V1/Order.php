@@ -70,6 +70,6 @@ class Order extends Component
         }
 
         return view('livewire.didrive.shop.v1.order', $out);
-        
+
     }
 }
