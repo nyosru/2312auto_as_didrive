@@ -9,13 +9,14 @@ use Livewire\Component;
 class Order extends Component
 {
 
+    public $status_show;
     public $type_order = 'all';
 // типы статусов
     public $types_order = [
-//        'all' => 'Все',
         'new' => 'Новые',
-        'maked' => 'Сборка',
+        'job' => 'В работе',
         'sended' => 'Отправлен',
+        'posted' => 'Доставлен',
         'finish' => 'Завершён',
         'canceled' => 'Отменён',
     ];
@@ -44,8 +45,9 @@ class Order extends Component
     {
         $out = [
             'items' => ShopOrder::where(function ($query) {
-                if (isset($this->types_order[$this->type_order]))
-                    $query->where('status', '=', $this->type_order);
+                if (isset($this->types_order[$this->status_show]))
+//                if (!empty($this->status_show))
+                    $query->where('status', '=', $this->status_show);
             })
                 ->with('user', 'user.phone', 'orderGoods', 'orderGoods.good')
                 ->orderBy('id', 'desc')

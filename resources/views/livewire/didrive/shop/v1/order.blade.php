@@ -2,20 +2,26 @@
     <h2 class="my-3 text-2xl font-bold">Заказы</h2>
     {{--    items_count: {{$items_count}}--}}
     <nav class="text-center xborder-[2px] xborder-green-300 mb-3">
-        <a href="#" class="px-3 py-1
-        @if( $type_order == 'all' ) bg-orange-200 @else bg-gray-200 @endif
+        <a
+            {{--            href="#" --}}
+            class="px-3 py-1
+        @if( empty($status_show) ) bg-orange-200 @else bg-gray-200 @endif
         hover:bg-blue-300
         "
-           wire:click="setFilterTypeOrder('all')"
+            href="/" wire:navigate
+            {{--           wire:click="setFilterTypeOrder('all')"--}}
         >Все</a>
-
+        {{--        status_show: {{$status_show}}--}}
         @foreach( $types_order as $to => $t_name )
-            <a href="#"
-               class="px-3 py-1 @if( $type_order == $to ) bg-orange-200 @else bg-gray-200 @endif hover:bg-blue-300"
-               wire:click="setFilterTypeOrder('{{ $to }}')"
-            >{{$t_name}} @if( isset($items_count[$to]) && $items_count[$to] > 0 )
+            <a
+                class="px-3 py-1 @if( $status_show == $to ) bg-orange-200 @else bg-gray-200 @endif hover:bg-blue-300"
+                href="/show/{{ $to }}"
+                wire:navigate
+            >{{$t_name}}
+                @if( isset($items_count[$to]) && $items_count[$to] > 0 )
                     <sup>{{ $items_count[$to] }}</sup>
-                @endif</a>
+                @endif
+            </a>
         @endforeach
 
     </nav>
@@ -25,21 +31,20 @@
     {{--    111--}}
     @foreach($items as $i )
 
-        <div class="flex flex-row mt-5 p-3
+        <div
+            wire:key="{{$i->id}}"
+            class="flex flex-row mt-5 p-3
           @if($loop->index%2 == 0) bg-gray-200 @else bg-gray-300 @endif
         ">
-
             <span class="text-2xl font-bold">
             Заказ № {{ $i->id }} от {{ date('d-m-Y',strtotime($i->created_at) ) }}
             </span>
-
             <div class="ml-5" style="padding: 5px; border: 1px solid #228500;">
                 <livewire:didrive.shop.v1.orderStatus
-                    :order_id=" $i->id "
+                    :order_id="$i->id"
                     lazy
                 />
             </div>
-
         </div>
         <div class="flex flex-row
         border-l-[10px] pl-2
@@ -118,26 +123,23 @@
                     </table>
                 @endif
 
-                    <div
-                        class="mt-5 bg-gradient-to-br from-white to-green-100 border-l-[10px] border-green-300 pb-3">
-                        <div class="bg-gradient-to-r from-green-300 to-white p-2 font-bold">
-                            комментарии
-                        </div>
-
-                        <livewire:didrive.shop.v1.comment
-                            :order_id=" $i->id "
-                            :datas=" $i->comments "
-                            lazy
-                        />
+                <div
+                    class="mt-5 bg-gradient-to-br from-white to-green-100 border-l-[10px] border-green-300 pb-3">
+                    <div class="bg-gradient-to-r from-green-300 to-white p-2 font-bold">
+                        комментарии
                     </div>
 
+                    <livewire:didrive.shop.v1.comment
+                        :order_id=" $i->id "
+                        :datas=" $i->comments "
+                        lazy
+                    />
+                </div>
 
 
-
-
-                    {{--                <br/>--}}
-{{--                <div class="bg-orange-200">вся инфа</div>--}}
-{{--                <small>{{ str_replace(',',', ',$i) }}</small>--}}
+                {{--                <br/>--}}
+                {{--                <div class="bg-orange-200">вся инфа</div>--}}
+                {{--                <small>{{ str_replace(',',', ',$i) }}</small>--}}
             </div>
         </div>
     @endforeach

@@ -12,6 +12,7 @@ $d = function () {
 //        ], function () {
 
         Route::view('/', 'didrive.index')->name('index');
+        Route::view('/show/{status_show}', 'didrive.index')->name('show');
 
         Route::group(['middleware' => 'auth.role'],
             function () {
