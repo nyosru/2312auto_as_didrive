@@ -3,11 +3,11 @@
 @section('content')
 
     @guest
-       вход вход
+{{--       вход вход--}}
 {{--       <livewire:forms.login-form/>--}}
-       <div class="w-[450px] mx-auto">
-        @include('livewire.pages.auth.login')
-       </div>
+{{--       <div class="w-[450px] mx-auto">--}}
+{{--        @include('livewire.pages.auth.login')--}}
+{{--       </div>--}}
 
     @endguest
 
