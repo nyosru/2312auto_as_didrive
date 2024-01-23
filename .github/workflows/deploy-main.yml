@@ -10,8 +10,24 @@ env:
   VPS_USERNAME: root
   DIR: /home_as/2312auto_as_didrive
   GIT_BRANCH: origin/main
+  DOCKER_CONTAINER: 2312didrive_auto
 
 jobs:
+
+  sms_start:
+    runs-on: ubuntu-latest
+    steps:
+      - name: send telega
+        uses: appleboy/telegram-action@master
+        with:
+          # to: ${{ secrets.TELEGRAM_TO }}
+          # phpcat,
+          to: 360209578
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          message: |
+            🐥🐥🐥 ${{ github.repository }}
+            ${{ github.event_name }} > ${{ github.event.head_commit.message }}
+            👨🏻‍💻 ${{github.actor}} (${{ github.run_id }})
 
   deploy:
     runs-on: ubuntu-latest
@@ -29,20 +45,20 @@ jobs:
             git reset --hard ${{ env.GIT_BRANCH }}
 
 
-#      - name: "update composer migration"
-#        uses: appleboy/ssh-action@master
-#        with:
-#          host: ${{ env.VPS_IP }}
-#          username: ${{ env.VPS_USERNAME }}
-#          key: ${{ secrets.DEPLOY_KEY }}
-#          script: |
-#            docker exec 2309livewire composer i
-#            docker exec 2309livewire php artisan migrate
+  deploy2:
+    runs-on: ubuntu-latest
+    needs: deploy
+    steps:
 
-
-
-
-
+      - name: "update composer & migration"
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ env.VPS_IP }}
+          username: ${{ env.VPS_USERNAME }}
+          key: ${{ secrets.DEPLOY_KEY }}
+          script: |
+            docker exec ${{ env.DOCKER_CONTAINER }} composer i
+            docker exec ${{ env.DOCKER_CONTAINER }} php artisan migrate
 
   # deploy_composer_stop:
   #   runs-on: ubuntu-latest
@@ -72,25 +88,10 @@ jobs:
   #           cd ${{ env.DIR }}
   #           make prod
 
-  sms_start:
-    runs-on: ubuntu-latest
-    steps:
-      - name: send telega
-        uses: appleboy/telegram-action@master
-        with:
-          # to: ${{ secrets.TELEGRAM_TO }}
-          # phpcat,
-          to: 360209578
-          token: ${{ secrets.TELEGRAM_TOKEN }}
-          message: |
-            🐥🐥🐥 ${{ github.repository }}
-            ${{ github.event_name }} > ${{ github.event.head_commit.message }}
-            👨🏻‍💻 ${{github.actor}} (${{ github.run_id }})
-
   sms_end:
     runs-on: ubuntu-latest
     # needs: [deploy_composer, deploy_npm]
-    needs: deploy
+    needs: deploy2
     steps:
       - name: send telega
         uses: appleboy/telegram-action@master
