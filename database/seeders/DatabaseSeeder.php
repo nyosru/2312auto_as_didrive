@@ -35,7 +35,8 @@ class DatabaseSeeder extends Seeder
 //////            LarawireNewsSeeder::class,
 ////            PhpcatNewsSeeder::class,
 ////            PhpcatServicesSeeder::class,
-            CommentSeeder::class
+            CommentSeeder::class,
+            LogSeeder::class
         ]);
 
         // \App\Models\User::factory(10)->create();

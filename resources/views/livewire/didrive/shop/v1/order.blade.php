@@ -136,6 +136,10 @@
                     />
                 </div>
 
+                    <livewire:didrive.shop.v1.order-log
+                        :order_id=" $i->id "
+                        lazy
+                    />
 
                 {{--                <br/>--}}
                 {{--                <div class="bg-orange-200">вся инфа</div>--}}
