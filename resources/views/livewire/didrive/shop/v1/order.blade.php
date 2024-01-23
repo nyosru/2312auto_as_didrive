@@ -123,18 +123,11 @@
                     </table>
                 @endif
 
-                <div
-                    class="mt-5 bg-gradient-to-br from-white to-green-100 border-l-[10px] border-green-300 pb-3">
-                    <div class="bg-gradient-to-r from-green-300 to-white p-2 font-bold">
-                        комментарии
-                    </div>
-
                     <livewire:didrive.shop.v1.comment
                         :order_id=" $i->id "
                         :datas=" $i->comments "
                         lazy
                     />
-                </div>
 
                     <livewire:didrive.shop.v1.order-log
                         :order_id=" $i->id "
