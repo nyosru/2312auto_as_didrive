@@ -7,9 +7,9 @@ use App\Models\Didrive\Shop\v1\Order;
 
 class OrderObserver
 {
-//    /**
-//     * Handle the Order "created" event.
-//     */
+    /**
+     * Handle the Order "created" event.
+     */
 //    public function created(Order $order): void
 //    {
 //        //
@@ -31,26 +31,26 @@ class OrderObserver
             ]);
         }
     }
-//
-//    /**
-//     * Handle the Order "deleted" event.
-//     */
+
+    /**
+     * Handle the Order "deleted" event.
+     */
 //    public function deleted(Order $order): void
 //    {
 //        //
 //    }
-//
-//    /**
-//     * Handle the Order "restored" event.
-//     */
+
+    /**
+     * Handle the Order "restored" event.
+     */
 //    public function restored(Order $order): void
 //    {
 //        //
 //    }
-//
-//    /**
-//     * Handle the Order "force deleted" event.
-//     */
+
+    /**
+     * Handle the Order "force deleted" event.
+     */
 //    public function forceDeleted(Order $order): void
 //    {
 //        //

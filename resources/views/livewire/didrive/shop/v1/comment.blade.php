@@ -10,20 +10,11 @@
     </div>
 
     @if($show)
-        {{--{{ $show }}--}}
-
-        {{--    коменты--}}
-        {{--    <br/>--}}
-        {{--    order_id: {{ $order_id ?? 'x' }}--}}
-        {{--    <br/>--}}
-        {{--    data: {{ $data ?? [] }}--}}
         <div class="bg-gradient-to-br from-white to-green-100 border-l-[10px] border-green-300">
             <div class="p-1"
                  style="max-height: 150px; overflow-y: auto;">
 
                 @foreach($data as $d)
-                    {{--            {{ $d }}--}}
-
                     <button class="text-xl text-red-300 hover:text-red-600 hover:font-bold"
                             wire:click="delete({{ $d->id }})"
                             wire:confirm="удалить комментарий ?"

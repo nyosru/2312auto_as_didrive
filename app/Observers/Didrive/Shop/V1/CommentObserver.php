@@ -23,10 +23,10 @@ class CommentObserver
     /**
      * Handle the Comment "updated" event.
      */
-    public function updated(Comment $comment): void
-    {
-        //
-    }
+//    public function updated(Comment $comment): void
+//    {
+//        //
+//    }
 
     /**
      * Handle the Comment "deleted" event.
@@ -44,16 +44,16 @@ class CommentObserver
     /**
      * Handle the Comment "restored" event.
      */
-    public function restored(Comment $comment): void
-    {
-        //
-    }
+//    public function restored(Comment $comment): void
+//    {
+//        //
+//    }
 
     /**
      * Handle the Comment "force deleted" event.
      */
-    public function forceDeleted(Comment $comment): void
-    {
-        //
-    }
+//    public function forceDeleted(Comment $comment): void
+//    {
+//        //
+//    }
 }

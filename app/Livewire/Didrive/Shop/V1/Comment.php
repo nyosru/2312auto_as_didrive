@@ -37,12 +37,9 @@ class Comment extends Component
 
     public function render()
     {
-
-        $in = [];
-        $in['data'] = \App\Models\Didrive\Shop\v1\Comment::whereOrderId($this->order_id)->orderBy('created_at', 'desc')->get();
-//        dd($in['data']);
-
-
+        $in = [
+            'data' => \App\Models\Didrive\Shop\v1\Comment::whereOrderId($this->order_id)->orderBy('created_at', 'desc')->get()
+        ];
         return view('livewire.didrive.shop.v1.comment', $in);
     }
 }

@@ -20,7 +20,6 @@ class OrderLog extends Component
         return view('livewire.didrive.shop.v1.order-log',[
             'data' => Log::whereModel_id($this->order_id)
                 ->orderBy('created_at', 'desc')
-//                ->whereModel('order')
                 ->get()
         ]);
     }
