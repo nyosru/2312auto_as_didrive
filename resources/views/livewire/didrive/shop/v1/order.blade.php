@@ -15,7 +15,7 @@
         @foreach( $types_order as $to => $t_name )
             <a
                 class="px-3 py-1 @if( $status_show == $to ) bg-orange-200 @else bg-gray-200 @endif hover:bg-blue-300"
-                href="/show/{{ $to }}"
+                href="{{ route('autoas.didrive.show',['status_show' => $to ]) }}"
                 wire:navigate
             >{{$t_name}}
                 @if( isset($items_count[$to]) && $items_count[$to] > 0 )
@@ -123,16 +123,16 @@
                     </table>
                 @endif
 
-                    <livewire:didrive.shop.v1.comment
-                        :order_id=" $i->id "
-                        :datas=" $i->comments "
-                        lazy
-                    />
+                <livewire:didrive.shop.v1.comment
+                    :order_id="$i->id"
+                    :datas="$i->comments"
+                    lazy
+                />
 
-                    <livewire:didrive.shop.v1.order-log
-                        :order_id=" $i->id "
-                        lazy
-                    />
+                <livewire:didrive.shop.v1.order-log
+                    :order_id="$i->id"
+                    lazy
+                />
 
                 {{--                <br/>--}}
                 {{--                <div class="bg-orange-200">вся инфа</div>--}}

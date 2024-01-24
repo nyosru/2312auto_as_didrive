@@ -50,7 +50,8 @@ class AuthController extends Controller
         // Авторизация пользователя
         Auth::login($user);
 //dd( $user);
-        return Redirect::to('/');
+//        return Redirect::to('/');
+        return Redirect::to('/di');
     }
 
     public static function vkCallback(Request $request)

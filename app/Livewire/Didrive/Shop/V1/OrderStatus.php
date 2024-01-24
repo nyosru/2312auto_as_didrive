@@ -20,7 +20,8 @@ class OrderStatus extends Component
     public function setStatus( \App\Models\Didrive\Shop\v1\Order $o, $new_status){
         $o->status = $new_status;
         $o->save();
-        return redirect()->to('/show/'.$new_status)
+//        return redirect()->to('/show/'.$new_status)
+        return redirect()->to(route('autoas.didrive.show',['status_show' => $new_status ]))
 //            ->with('status', 'Post created!')
             ;
 //        return back();
