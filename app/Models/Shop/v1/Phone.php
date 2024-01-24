@@ -9,6 +9,15 @@ class Phone extends Model
 {
     use HasFactory;
 
+
+    /**
+     * Имя соединения, которое будет использоваться для данной модели.
+     *
+     * @var string
+     */
+    protected $connection = 'mysql_site';
+
+
     protected $fillable = [
         'user_id',
         'phone',

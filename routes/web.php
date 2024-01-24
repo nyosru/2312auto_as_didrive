@@ -48,6 +48,10 @@ require __DIR__ . '/web.auto_didrive.php';
 
 Route::get('/enter-vk/enter', [ AuthController::class, 'vkEnter' ] )->name('vk_enter');
 Route::get('/enter-vk/callback', [ AuthController::class, 'vkCallback' ] );
-Route::get('/logout', [\App\Livewire\Actions\Logout::class, '__invoke'])->name('logout');
+
+Route::get('/logout', [\App\Livewire\Actions\Logout::class, '__invoke'])
+    ->name('logout')
+//    ->middleware('auth')
+;
 
 require __DIR__ . '/auth.php';

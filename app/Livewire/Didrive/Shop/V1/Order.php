@@ -10,6 +10,7 @@ class Order extends Component
 {
 
     public $status_show;
+    public $last_cat;
     public $type_order = 'all';
 // типы статусов
     public $types_order = [

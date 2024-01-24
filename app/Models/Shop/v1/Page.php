@@ -8,6 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Page extends Model
 {
     use HasFactory;
+
+    /**
+     * Имя соединения, которое будет использоваться для данной модели.
+     *
+     * @var string
+     */
+    protected $connection = 'mysql_site';
+
         /**
      * Таблица БД, ассоциированная с моделью.
      *

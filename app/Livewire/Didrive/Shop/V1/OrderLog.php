@@ -10,6 +10,7 @@ class OrderLog extends Component
 
     public $order_id;
     public $show = false;
+    public $created_at;
 
     public function changeShow(){
         $this->show=!$this->show;

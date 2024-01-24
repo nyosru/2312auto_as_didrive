@@ -13,6 +13,14 @@ class User extends Authenticatable implements MustVerifyEmail
     use HasApiTokens, HasFactory, Notifiable;
 
     /**
+     * Имя соединения, которое будет использоваться для данной модели.
+     *
+     * @var string
+     */
+    protected $connection = 'mysql_site';
+
+
+    /**
      * The attributes that are mass assignable.
      *
      * @var array<int, string>

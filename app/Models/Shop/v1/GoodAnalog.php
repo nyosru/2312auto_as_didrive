@@ -10,6 +10,15 @@ use App\Models\Good;
 class GoodAnalog extends Model
 {
     use HasFactory;
+
+
+    /**
+     * Имя соединения, которое будет использоваться для данной модели.
+     *
+     * @var string
+     */
+    protected $connection = 'mysql_site';
+
     /**
      * Таблица БД, ассоциированная с моделью.
      *

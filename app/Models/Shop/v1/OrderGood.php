@@ -8,6 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class OrderGood extends Model
 {
     use HasFactory;
+
+    /**
+     * Имя соединения, которое будет использоваться для данной модели.
+     *
+     * @var string
+     */
+    protected $connection = 'mysql_site';
+
     protected $fillable = [
         'good_id',
         'order_id',

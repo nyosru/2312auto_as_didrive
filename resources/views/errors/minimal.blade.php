@@ -37,6 +37,8 @@
         <style>
             .top_exit{
                 z-index:100;position:fixed; top: 10px; right: 10px;
+                padding: 10px 20px;
+                background-color: white;
             }
             .top_exit a{
                 color: blue;
@@ -51,8 +53,7 @@
             }
         </style>
 
-
-        <div class="top_exit"><a href="{{ route('logout') }}">выйти</a></div>
+        <div class="top_exit"><a href="{{ route('logout') }}">зайти заново</a></div>
         <div class="bottom_c"><a href="https://php-cat.com">php-cat.com</a></div>
 
     </body>

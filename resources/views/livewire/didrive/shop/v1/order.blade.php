@@ -1,20 +1,21 @@
 <div class="w-full px-5">
 
     <style>
-        .fixed-top{
+        .fixed-top {
             display: block;
             position: sticky;
             top: 0px;
-            z-index:100;
+            z-index: 100;
         }
-        .fixed-top-item{
+
+        .fixed-top-item {
             top: 40px;
             position: sticky;
-            z-index:100;
+            z-index: 100;
         }
     </style>
 
-    <h2 class="my-3 text-2xl font-bold">Заказы</h2>
+    {{--    <h2 class="my-3 text-2xl font-bold">Заказы</h2>--}}
     {{--    items_count: {{$items_count}}--}}
     <nav class="text-center xborder-[2px] xborder-green-300 mb-3 fixed-top py-2 shadow-2xl
     bg-blue-300
@@ -26,7 +27,7 @@
         @if( empty($status_show) ) bg-orange-200 @else bg-gray-200 @endif
         hover:bg-blue-300
         "
-            href="/" wire:navigate
+            href="{{ route('autoas.didrive.index') }}" wire:navigate
             {{--           wire:click="setFilterTypeOrder('all')"--}}
         >Все</a>
         {{--        status_show: {{$status_show}}--}}
@@ -110,19 +111,36 @@
             <div class="basis-3/4 pl-1">
 
                 @if(!empty($i->orderGoods) )
-                    <table class="w-full">
+                    <table class="w-full my-3">
                         <thead>
                         <tr>
-                            <th class="text-left">Товар</th>
+                            <th class="text-left py-2">Товар</th>
                             <th class="text-left">Цена в заказе</th>
                             <th class="text-left">Цена товара (сейчас)</th>
                             <th class="text-left">Действия</th>
                         </tr>
                         </thead>
                         <tbody>
+
                         @foreach($i->orderGoods as $o )
+
+{{--                            @if( $last_cat != $i->id )--}}
+                                <tr {{ $last_cat=$i->id  }} class=" @if($loop->index%2 == 0) bg-gray-200 @else bg-blue-100 @endif ">
+                                    <td class="px-2 py-2" colspan="4">
+                                        <livewire:didrive.shop.v1.order-item-cats
+                                            :cat_id="$o->good->a_categoryid"
+                                            lazy
+                                        />
+                                    </td>
+                                </tr>
+{{--                                {{ $last_cat = $i->id }}--}}
+{{--                            @endif--}}
+
                             <tr class=" @if($loop->index%2 == 0) bg-gray-200 @else bg-blue-100 @endif ">
-                                <td class="px-2 py-1">{{$o->good->head}}
+                                <td class="pl-5 py-2">
+                                    <span class="text-xl" >
+                                    {{$o->good->head}}
+                                    </span>
                                     <sup><a class="text-blue-700 hover:underline"
                                             href="https://avto-as.ru/good/{{$o->good->a_id}}" target="_blank">на
                                             сайте</a></sup>
@@ -137,6 +155,14 @@
                                 </td>
                                 <td class="px-2 py-1">-</td>
                             </tr>
+@if(1==2)
+<tr>
+                                <td colspan="4">
+                                    <pre>
+                                        {{ print_r($o->good) }}
+                                    </pre>
+                                </td></tr>
+@endif
                         @endforeach
                         </tbody>
                     </table>
@@ -150,6 +176,7 @@
 
                 <livewire:didrive.shop.v1.order-log
                     :order_id="$i->id"
+                    :created_at="$i->created_at"
                     lazy
                 />
 
@@ -161,5 +188,13 @@
     @endforeach
 
     {{ $items->links() }}
+
+    <style>
+        .nav-cats a:not(:first-child)::before {
+            content: "/";
+            margin: 0 5px; /* Установите желаемый отступ между разделителями и текстом */
+            color: #333; /* Установите желаемый цвет разделителя */
+        }
+    </style>
 
 </div>

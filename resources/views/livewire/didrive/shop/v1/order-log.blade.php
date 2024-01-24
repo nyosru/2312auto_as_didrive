@@ -18,6 +18,14 @@
                 {!! $log->msg !!}
                 <br/>
             @endforeach
+
+
+            <abbr
+                title="{{ $created_at->format('d.m.Y H:i:s') }}"><b>{{ $created_at->format('d.m') }}@if( date('Y') != $created_at->format('Y') )
+                        .{{ $created_at->format('Y') }}
+                    @endif {{ $created_at->format('H:i') }}</b></abbr>
+            создание заказа
+
         </div>
     @endif
 </div>
