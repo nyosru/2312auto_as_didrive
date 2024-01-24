@@ -1,7 +1,25 @@
 <div class="w-full px-5">
+
+    <style>
+        .fixed-top{
+            display: block;
+            position: sticky;
+            top: 0px;
+            z-index:100;
+        }
+        .fixed-top-item{
+            top: 40px;
+            position: sticky;
+            z-index:100;
+        }
+    </style>
+
     <h2 class="my-3 text-2xl font-bold">Заказы</h2>
     {{--    items_count: {{$items_count}}--}}
-    <nav class="text-center xborder-[2px] xborder-green-300 mb-3">
+    <nav class="text-center xborder-[2px] xborder-green-300 mb-3 fixed-top py-2 shadow-2xl
+    bg-blue-300
+    xbg-gradient-to-r xfrom-cyan-500 xto-blue-500
+    ">
         <a
             {{--            href="#" --}}
             class="px-3 py-1
@@ -35,6 +53,7 @@
             wire:key="{{$i->id}}"
             class="flex flex-row mt-5 p-3
           @if($loop->index%2 == 0) bg-gray-200 @else bg-gray-300 @endif
+          fixed-top-item
         ">
             <span class="text-2xl font-bold">
             Заказ № {{ $i->id }} от {{ date('d-m-Y',strtotime($i->created_at) ) }}

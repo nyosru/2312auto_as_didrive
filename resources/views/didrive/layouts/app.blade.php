@@ -48,7 +48,6 @@
     @include('didrive.layouts.header')
 </header>
 <main style="min-height:80vh;">
-
     {{--        <livewire:ar.header-menu/>--}}
     <livewire:didrive.menu/>
     @yield('content')

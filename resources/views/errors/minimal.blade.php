@@ -30,5 +30,30 @@
                 </div>
             </div>
         </div>
+
+
+
+
+        <style>
+            .top_exit{
+                z-index:100;position:fixed; top: 10px; right: 10px;
+            }
+            .top_exit a{
+                color: blue;
+                text-decoration: underline;
+            }
+            .bottom_c{
+                z-index:100;position:fixed; bottom: 10px; left: 0px; right: 0px; text-align:center;
+            }
+            .bottom_c a{
+                color: #336dec;
+                text-decoration: underline;
+            }
+        </style>
+
+
+        <div class="top_exit"><a href="{{ route('logout') }}">выйти</a></div>
+        <div class="bottom_c"><a href="https://php-cat.com">php-cat.com</a></div>
+
     </body>
 </html>
