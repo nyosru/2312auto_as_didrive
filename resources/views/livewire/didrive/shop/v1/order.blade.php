@@ -124,21 +124,21 @@
 
                         @foreach($i->orderGoods as $o )
 
-{{--                            @if( $last_cat != $i->id )--}}
-                                <tr {{ $last_cat=$i->id  }} class=" @if($loop->index%2 == 0) bg-gray-200 @else bg-blue-100 @endif ">
-                                    <td class="px-2 py-2" colspan="4">
-                                        <livewire:didrive.shop.v1.order-item-cats
-                                            :cat_id="$o->good->a_categoryid"
-                                            lazy
-                                        />
-                                    </td>
-                                </tr>
-{{--                                {{ $last_cat = $i->id }}--}}
-{{--                            @endif--}}
+                            {{--                            @if( $last_cat != $i->id )--}}
+                            <tr {{ $last_cat=$i->id  }} class=" @if($loop->index%2 == 0) bg-gray-200 @else bg-blue-100 @endif ">
+                                <td class="px-2 py-2" colspan="4">
+                                    <livewire:didrive.shop.v1.order-item-cats
+                                        :cat_id="$o->good->a_categoryid"
+                                        lazy
+                                    />
+                                </td>
+                            </tr>
+                            {{--                                {{ $last_cat = $i->id }}--}}
+                            {{--                            @endif--}}
 
                             <tr class=" @if($loop->index%2 == 0) bg-gray-200 @else bg-blue-100 @endif ">
                                 <td class="pl-5 py-2">
-                                    <span class="text-xl" >
+                                    <span class="text-xl">
                                     {{$o->good->head}}
                                     </span>
                                     <sup><a class="text-blue-700 hover:underline"
@@ -155,14 +155,17 @@
                                 </td>
                                 <td class="px-2 py-1">-</td>
                             </tr>
-@if(1==2)
-<tr>
-                                <td colspan="4">
+
+                            @if(1==2)
+                                <tr>
+                                    <td colspan="4">
                                     <pre>
                                         {{ print_r($o->good) }}
                                     </pre>
-                                </td></tr>
-@endif
+                                    </td>
+                                </tr>
+                            @endif
+
                         @endforeach
                         </tbody>
                     </table>
