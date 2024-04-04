@@ -37,8 +37,6 @@ use App\Http\Controllers\SocialiteController;
 
 
 
-require __DIR__ . '/web.auto_didrive.php';
-
 
 //Route::get('/login/vkontakte', [SocialiteController::class, 'redirectToVkProvider'])->name('vkontakte.login');
 //Route::get('/enter-vk/callback', [SocialiteController::class, 'redirectToVkProvider'])->name('vkontakte.login');
@@ -55,3 +53,5 @@ Route::get('/logout', [\App\Livewire\Actions\Logout::class, '__invoke'])
 ;
 
 require __DIR__ . '/auth.php';
+
+require __DIR__ . '/web.auto_didrive.php';
