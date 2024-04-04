@@ -68,7 +68,7 @@ $d = function () {
 
 Route::group([
     'as' => 'autoas.didrive.',
-    'domain' => env('APP_DOMAIN', 'didrive.auto-as.local')
+//    'domain' => env('APP_DOMAIN', 'didrive.auto-as.local')
 ], $d);
 
 //Route::group([
